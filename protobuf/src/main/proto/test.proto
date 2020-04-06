@@ -1,0 +1,7 @@
+package protocol;
+option java_package = "com.lxq18.learn.serialize.protobuf.protocol";
+option java_outer_classname = "TestProtoBuf";
+message testBuf  {
+    required int32 id = 1;
+    required string url = 2;
+}
