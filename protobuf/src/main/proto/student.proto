@@ -1,0 +1,9 @@
+syntax = "proto3";
+package com.lxq18.learn.serialize.protobuf.protocol;
+
+option java_outer_classname = "StudentA";
+
+message student {
+    string name = 1;
+
+}

@@ -1,0 +1,3 @@
+protoc -I=源地址 --java_out=目标地址 源地址/xxx.proto
+
+protoc -I=protobuf/src/main/proto --java_out=protobuf/src/main/java protobuf/src/main/proto/*.proto

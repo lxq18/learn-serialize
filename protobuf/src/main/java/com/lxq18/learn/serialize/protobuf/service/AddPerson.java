@@ -1,6 +1,7 @@
 package com.lxq18.learn.serialize.protobuf.service;
 
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.googlecode.protobuf.format.JsonFormat;
 import com.lxq18.learn.serialize.protobuf.protocol.AddressBookProtos.AddressBook;
 import com.lxq18.learn.serialize.protobuf.protocol.AddressBookProtos.Person;
 
@@ -38,6 +39,19 @@ public class AddPerson {
         //反序列化
         AddressBook addressBook1 = AddressBook.parseFrom(toBytes);
         System.out.println(addressBook1.toString());
+
+        //protobuf转json
+        String json = JsonFormat.printToString(addressBook.build());
+        System.out.println("protobuf转json = " + json);
+
+        //json转protobuf
+        AddressBook.Builder protobufFromJson = AddressBook.newBuilder();
+        try {
+            JsonFormat.merge(json, protobufFromJson);
+        } catch (JsonFormat.ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println("json转protobuf = " + JsonFormat.printToString(protobufFromJson.build()));
     }
 }
 
